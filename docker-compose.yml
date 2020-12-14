@@ -2,7 +2,10 @@ version: "3.8"
 
 services:
   rasa-server:
-    image: rasa/rasa:2.1.3-full
+    build:
+      context: .
+      dockerfile: gpu.Dockerfile
+    runtime: nvidia
     volumes:
       - .:/app
     entrypoint: sh
