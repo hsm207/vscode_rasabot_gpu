@@ -24,7 +24,7 @@
         {
             "type": "shell",
             "label": "Rasa: Train Bot",
-            "command": "docker-compose exec rasa-server rasa train",
+            "command": "docker-compose run --rm --no-deps -w /app --entrypoint rasa rasa-server train; sudo chown -R $(id -u):$(id -g) ./models",
             "presentation": {
                 "reveal": "always",
                 "panel": "dedicated"
